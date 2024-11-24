@@ -70,7 +70,7 @@ namespace WpfApp1
         {
             Console.WriteLine("Base class");
         }
-        public void Passvalid()
+        public virtual void Passvalid()
         {
             throw new NotImplementedException();
         }
@@ -106,7 +106,7 @@ namespace WpfApp1
             Console.WriteLine(a + b);
             return a + b;
         }
-        public void Passvalid()
+        public override void Passvalid()
         {
             Console.WriteLine("Passvalid");
         }
