@@ -41,12 +41,30 @@ namespace WpfApp1
             InitializeComponent();
             cmdArg = App.CommandLineArgs;
 
-            //SQL intraction along with test MariaDB connection
-            SQLIntraction objSQLIntraction = new SQLIntraction();
-
             //Boxing and unboxing 
             int i = 15;
             object obj = i;
+
+            //Tuples
+            //Combination of two data types
+            (int, double) amount = (5, 2.5);
+            Console.WriteLine(amount.ToString());
+
+            //(Custom variable) .NET keyword can be used as a local variable with @ symbol 
+            string @for = "test";
+
+            //below is not possible in C#
+            //string #for="";
+
+            //string interpolation
+            string Text1 = $"Hello {amount}!";
+            // Normal string with escaping
+            string path1 = "C:\\Users\\John\\Documents\\file.txt";
+            // Verbatim string
+            string path2 = @"C:\Users\John\Documents\file.txt";
+
+            //SQL intraction along with test MariaDB connection
+            SQLIntraction objSQLIntraction = new SQLIntraction();
 
             //To explore EntityFrame Work
             /* Start_of EF */
@@ -56,6 +74,7 @@ namespace WpfApp1
 
             SchoolContext schoolContext = new SchoolContext();
             Student newStudent = new Student() { Name = "Albert" };
+            IStudent sStudent = new Student() { Name = "Albert" };
             Student newoblderived = new Student() { Name="FirstValue",Address="Westmoreland road"};
             /*  Below "DataContext" line of code is used to assign class binding to the "textbox2" */
             this.DataContext = new Student() { Name = "Name", Address = "Westmoreland road" };
@@ -112,21 +131,16 @@ namespace WpfApp1
             //To explore various delegate methods
             Delegate clsWithDelegate = new Delegate();
 
-            //(Custom variable) .NET keyword can be used as a local variable with @ symbol 
-            string @for = "test";
 
             /* The below will not work bcoz we created this obj from the BaseA class 
              * in which does not have the property "Name"*/
             //oblderived.Name = "test";
             newoblderived.Name = @for;
 
-            var testvar = newoblderived.Name;
-            txtbox1.Text = testvar.ToString();
 
-            //Tuples
-            //Combination of two data types
-            (int, double) amount = (5, 2.5);
-            Console.WriteLine(amount.ToString());
+            txtbox1.Text = newoblderived.Name;
+
+
 
             //To explore different classes and their access methods 
             /* the below line of code is not possible we cannot create instance 

@@ -13,8 +13,12 @@ using System.Threading.Tasks.Dataflow;
 
 namespace WpfApp1
 {
-    public class Grade
+    public interface IStudent
     {
+        public void CheckP();
+    }
+    public class Grade : IStudent
+        {
         public int GradeId { get; set; }
         public required string GradeName { get; set; }
         public string? Section { get; set; }
@@ -25,11 +29,12 @@ namespace WpfApp1
         // public virtual ICollection<Student> Students { get; private set; } =  new ObservableCollection<Student>();
 
     }
-    public class Student  
-    {
+    public class Student  : IStudent
+        {
         public Student()
         {
-            Name = "";
+            this.Name = name;
+            this.Address = address;
         }
         private string name = string.Empty;  //Field/variable name
         private string address = string.Empty;
@@ -68,7 +73,10 @@ namespace WpfApp1
                 address = value;
             }
         }
-        
+        public void CheckP()
+        {
+            Console.WriteLine("WithoutVirtual");
+        }
     }
     public class SchoolContext: DbContext
     {
