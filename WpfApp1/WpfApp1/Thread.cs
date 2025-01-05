@@ -12,6 +12,9 @@ namespace WpfApp1
 
         public Thread() {
             Interfaces objClsWithInterfaces = new Interfaces();
+ /*
+ * Task.Run(()=>XXX) can be used to convert normal method to Task(thread method)
+ */
             /**** 1. Different thread concepts**/
             // Task.Run(()=> FileRead());
             /**** 5. Different thread concepts**/
@@ -27,6 +30,16 @@ namespace WpfApp1
             System.Threading.Thread thread = new System.Threading.Thread(new ThreadStart(PasswordCheck));
             thread.Start();
 
+            /**** 6. Different thread concepts**/
+            //Supply series of methods to the thread pool to execute
+            var tasks = new Task[] {
+                Task.Run(()=> PasswordCheck()) ,
+                Task.Run(() => PassValid())
+            };
+            //Creates a task that will complete when "all of the supplied tasks" have completed.
+            var ResWhenAll = Task.WhenAll(tasks);
+            //Creates a task that will complete when "any of the supplied tasks" have completed.
+            var ResWhenAny = Task.WhenAny(tasks);
 
             //To lock the object from other resources.
             lock (objClsWithInterfaces)
@@ -44,6 +57,11 @@ namespace WpfApp1
         {
             int i=5;
             Console.WriteLine(i);
+        }
+        public void PassValid()
+        {
+            int integer = 5;
+            Console.WriteLine(integer);            
         }
     }
 }
