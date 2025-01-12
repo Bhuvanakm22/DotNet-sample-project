@@ -42,7 +42,8 @@
             <MenuItem Header="XML" Click="MenuItem_Click_6"/>
             <MenuItem Header="Delegates" Click="MenuItem_Click_7"/>
             <MenuItem Header="File Handle" Click="MenuItem_Click_8"/>
-            <MenuItem Header="Close" Click="MenuItem_Click_9"/>
+            <MenuItem Header="MSMQ" Click="MenuItem_Click_9"/>
+            <MenuItem Header="Close" Click="MenuItem_Click_10"/>
         </Menu>
 
     </Grid>

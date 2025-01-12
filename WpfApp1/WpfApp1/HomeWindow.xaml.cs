@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetConceptWithWpfApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,6 +82,10 @@ namespace WpfApp1
             FileHandle clsMain = new FileHandle();
         }
         private void MenuItem_Click_9(object sender, RoutedEventArgs e)
+        {
+            MSMQMessageReceiver msms = new MSMQMessageReceiver();
+        }
+        private void MenuItem_Click_10(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
