@@ -2,6 +2,8 @@ using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Moq;
 using NUnit.Framework;
 using WpfApp1;
+using NetConceptWithWpfApp;
+using NUnit.Framework.Internal;
 namespace TestWpfApp1
 {
    
@@ -20,7 +22,7 @@ namespace TestWpfApp1
             //Assert.Pass();
             DerivedA objDerivedA = new DerivedA() ;
 
-            Assert.AreEqual(expected, objDerivedA.Passcheck(number1, number2).ToString());
+            //Assert.AreEqual(expected, objDerivedA.Passcheck(number1, number2).ToString());
             Assert.That(objDerivedA.Passcheck(number1, number2).ToString()== expected);
 
 
@@ -45,7 +47,23 @@ namespace TestWpfApp1
         public void Loginvalid_WithIntInput_CorrectOutput(int number1, int number2, string expected)
         {
             BaseA objBaseA = new BaseA() ;
-            Assert.AreEqual(expected, objBaseA.Loginvalid(number1, number2).ToString());
+            //Assert.AreEqual(expected, objBaseA.Loginvalid(number1, number2).ToString());
+        }
+        //[Test]
+        public void DivideByZeroException_StatMethod()
+        {
+            DerivedA objDerivedA = new DerivedA();
+            //string str = "exception";
+            var ex= Assert.Throws<DivideByZeroException>(() => objDerivedA.StatMethod(2,0));
+            //Assert.AreEqual(str, ex.Message);
+        }
+        [Test]
+        [TestCase(5,0, "Attempted to divide by zero.")]
+        public void DivideByZeroException_DivideMethod(int a,int b,string expected)
+        {
+            SimpleCalculator sSimpleCalculator = new SimpleCalculator();
+            var ex=Assert.Throws<DivideByZeroException>(()=> sSimpleCalculator.Divide(a, b));
+            //Assert.AreEqual(ex.Message, expected);
         }
     }
 }

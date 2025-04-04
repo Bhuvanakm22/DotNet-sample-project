@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,13 +34,19 @@ namespace WpfApp1
             {
                 //2. Write byte to the file.
                 /***This is a recommended approach***/
-                FileStream fileStream = new FileStream(filename, FileMode.OpenOrCreate);
+                FileStream fileStream = new FileStream(filename, FileMode.OpenOrCreate,FileAccess.ReadWrite,FileShare.ReadWrite);
                 fileStream.WriteByte(filedata);
                 char ReadFile = (char)fileStream.ReadByte();
                 //txtbox1.AppendText("\n");
                 //txtbox1.AppendText(ReadFile.ToString());
                 //txtbox1.AppendText("\n");
                 fileStream.Close();
+                
+
+                using (FileStream fs = new FileStream(filename,FileMode.OpenOrCreate))
+                {
+                    fs.WriteByte(filedata);
+                }
 
                 //3. Write text to the file
                 using (TextWriter writer = File.CreateText("testFile.txt"))

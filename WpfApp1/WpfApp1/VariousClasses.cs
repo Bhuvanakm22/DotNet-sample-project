@@ -15,9 +15,13 @@ namespace WpfApp1
             objderived.login();
         }
     }
-    internal class ClsInternalClasses
+    internal class ClsInternalClasses : Abstractclass
     {
      //Cannot be shared outside
+     public override void login()
+        {
+            Console.WriteLine("");
+        }
     }
     public enum Level
     {
@@ -32,6 +36,10 @@ namespace WpfApp1
         {
 
         }
+        public void SealedMethod()
+        {
+            Console.WriteLine("");
+        }
     }
 
     /*
@@ -45,12 +53,12 @@ namespace WpfApp1
     abstract class Abstractclass
     {
         public abstract void login();
-        public void abcmethod()
+        public void AbstractMethod()
         {
             Console.WriteLine();
         }
     }
-    static class StaticClass
+    static class StaticClass 
     {
         public static void StatMethod()
         {
@@ -90,6 +98,7 @@ namespace WpfApp1
         {
             Console.WriteLine("Derived class method redefination using override.");
         }
+        //Override interface definition with key "new"
         public new void CheckP()
         {
 
@@ -110,7 +119,16 @@ namespace WpfApp1
         {
             Console.WriteLine("Passvalid");
         }
-        
+        public string StatMethod(int a,int b)
+        {
+            if (b == 0)
+                throw new DivideByZeroException();
+            else
+            {
+                return (a + b).ToString();
+            }
+            
+        }
         private object objlock = new object();
 
     }//clsDerived

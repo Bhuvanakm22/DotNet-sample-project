@@ -126,7 +126,7 @@ namespace WpfApp1
             XML xmlcreation = new XML();
 
             //Various array declarations
-            ArrayDeclaration arrayDeclarations = new ArrayDeclaration();
+            Arrays arrayDeclarations = new Arrays();
 
             //To explore various delegate methods
             Delegate clsWithDelegate = new Delegate();

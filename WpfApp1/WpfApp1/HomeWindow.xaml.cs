@@ -64,7 +64,7 @@ namespace WpfApp1
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
         {
             //Array
-            ArrayDeclaration clsMain = new ArrayDeclaration();
+            Arrays clsMain = new Arrays();
         }
         private void MenuItem_Click_6(object sender, RoutedEventArgs e)
         {
