@@ -72,13 +72,38 @@ Console.WriteLine($"Content of the string box: {stringBox.GetContent()}");
             string[] words = { "apple", "banana", "orange", "grape" };
             Console.WriteLine($"Max word: {FindMax(words)}");
 
+            //3. Generic Dictionary
+            dictionaries();
 
 
 
 
 
 
+        }
+        
+        /// <summary>
+        /// generic class provides a mapping from a set of keys to a set of values. 
+        /// Each addition to the dictionary consists of a value and its associated key. 
+        /// Retrieving a value by using its key is very fast, close to O(1), 
+        /// because the Dictionary<TKey,TValue> class is implemented as a hash table.
+        /// </summary>
+        public void dictionaries()
+        {
+            //Generic Dictionary
+            Dictionary<string, string> openWith = new Dictionary<string, string>();
+            Dictionary<DateTime, Double> temperatureInfo = new Dictionary<DateTime, Double>();
+            temperatureInfo.Add(new DateTime(2010, 6, 1, 14, 0, 0), 87.46);
+            temperatureInfo.Add(new DateTime(2010, 12, 1, 10, 0, 0), 36.81);
 
+            Console.WriteLine("Temperature Information:\n");
+            string output;
+            foreach (var item in temperatureInfo)
+            {
+                output = String.Format("Temperature at {0,8:t} on {0,9:d}: {1,5:N1}°F",
+                                       item.Key, item.Value);
+                Console.WriteLine(output);
+            }
         }
 
  

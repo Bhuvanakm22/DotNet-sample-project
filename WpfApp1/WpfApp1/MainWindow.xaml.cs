@@ -55,7 +55,9 @@ namespace WpfApp1
 
             //below is not possible in C#
             //string #for="";
-
+            /*
+             https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
+             */
             //string interpolation
             string Text1 = $"Hello {amount}!";
             // Normal string with escaping
