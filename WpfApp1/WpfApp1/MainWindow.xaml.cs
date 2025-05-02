@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySqlConnector;
+using static System.Math;
 namespace WpfApp1
 {
       /// <summary>
@@ -203,8 +204,9 @@ namespace WpfApp1
             Radius = 10;
 
             //To explore different casting and conversion methods
-            Area=(int)Math.PI *  (int)Math.Pow(Radius, 2);
-            int circumference = Convert.ToInt32(2 * Math.PI * Radius);
+            //Replace "Math.PI" to "PI" since we have included "static system.Math" on namespace itself
+            Area = (int)PI *  (int)Pow(Radius, 2);
+            int circumference = Convert.ToInt32(2 * PI * Radius);
 
             return circumference;
 

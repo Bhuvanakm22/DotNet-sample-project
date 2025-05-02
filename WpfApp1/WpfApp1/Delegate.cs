@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Documents;
-
+using static System.Math;
 namespace WpfApp1
 {
     /// <summary>
@@ -106,9 +106,11 @@ namespace WpfApp1
             Radius = 10;
 
             //To explore different casting and conversion methods
-            Area = (int)Math.PI * (int)Math.Pow(Radius, 2);
-            int circumference = Convert.ToInt32(2 * Math.PI * Radius);
+            Area = (int)PI * (int)Math.Pow(Radius, 2);
+            //int circumference = Convert.ToInt32(2 * Math.PI * Radius);
 
+            //Instead of using multiple Math. we can use using static System.Math namespace
+            int circumference = Convert.ToInt32(2 * PI * Radius);
             return circumference;
 
         }
