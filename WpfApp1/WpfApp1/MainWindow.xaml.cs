@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySqlConnector;
 using static System.Math;
+using NetConceptWithWpfApp;
 namespace WpfApp1
 {
       /// <summary>
@@ -42,6 +43,7 @@ namespace WpfApp1
             InitializeComponent();
             cmdArg = App.CommandLineArgs;
 
+            DesignPatterns objDesignPatterns= new DesignPatterns();
             //Boxing and unboxing 
             int i = 15;
             object obj = i;
@@ -67,7 +69,7 @@ namespace WpfApp1
             string path2 = @"C:\Users\John\Documents\file.txt";
 
             //SQL intraction along with test MariaDB connection
-            SQLIntraction objSQLIntraction = new SQLIntraction();
+            SQLRepository objSQLIntraction = new SQLRepository();
 
             //To explore EntityFrame Work
             /* Start_of EF */
@@ -143,7 +145,7 @@ namespace WpfApp1
 
             txtbox1.Text = newoblderived.Name;
 
-
+            LINQ lINQ = new LINQ();
 
             //To explore different classes and their access methods 
             /* the below line of code is not possible we cannot create instance 
@@ -158,7 +160,8 @@ namespace WpfApp1
             FileHandle objFileHandle = new FileHandle();
             FileRead();
 
-
+            //Hash table and collections
+            CollectionsAndHash objCollection=new CollectionsAndHash();
 
             /*Using "out" keyword in the method calling
             Without declaring the variable outside it is declared with in the method using "out" keyword

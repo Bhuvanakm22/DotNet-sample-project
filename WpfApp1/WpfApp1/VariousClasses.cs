@@ -15,13 +15,65 @@ namespace WpfApp1
             objderived.login();
         }
     }
+
+    abstract class Abstractclass2
+    {
+        public abstract void login2();
+    }
+    //It contains only abstration and no implementation which is used to hide the method definition. Similar to interface
+    /// <summary>
+    /// Abstract classes can define "common functionality" and state that subclasses can inherit and use. 
+    /// Use them when you have a common base with shared functionality and behavior for a hierarchy of related classes, 
+    /// or when you need to control the inheritance model. 
+    /// </summary>
+    abstract class Abstractclass
+    {
+        //Below will throw an err if we declare with "virtual" WITHOUT body of the fn.
+        //if there is NO body of the fn in abstract class must declare with "abstract" keyword
+        //public virtual void Validate();
+        public abstract void Validate();
+        public abstract void login();
+
+        // Derived class can be overridden with their own definition if we use "virtual"
+        //Whereas when we use "abstract" Derived class MUST be overridden
+        public virtual void Validate2()
+        {
+            Console.WriteLine();
+        }
+
+        public void AbstractMethod()
+        {
+            Console.WriteLine();
+        }
+    }
+    /*Below line will give Error when More than one abstractclass implemented
+     * but we can implement more than one interface at a time
+     * Abstract class => base class 
+     * Interface => allowing it to adopt different behaviors. 
+      internal class ClsInternalClasses : Abstractclass, Abstractclass2
+    {
+    }
+    */
+    //internal class  Cannot be shared outside
     internal class ClsInternalClasses : Abstractclass
     {
-     //Cannot be shared outside
+     
      public override void login()
         {
             Console.WriteLine("");
         }
+        public override void Validate()
+        {
+            Console.WriteLine();
+        }
+        public override void Validate2()
+        {
+            Console.WriteLine();
+        }
+        //public new void AbstractMethod()
+        //{
+        //    Console.WriteLine();
+        //}
     }
     public enum Level
     {
@@ -30,6 +82,12 @@ namespace WpfApp1
         High,
         VeryHigh
     }
+    /*
+ * ***********Will throw error since we cannot inherit sealed class
+//public class clsDerivedB: CannotInheritclass
+//{ 
+//}
+*/
     sealed class CannotInheritclass
     {
         public void SealedMethodlogin()
@@ -42,22 +100,7 @@ namespace WpfApp1
         }
     }
 
-    /*
-     * ***********Will throw error since we cannot inherit sealed class
-    //public class clsDerivedB: CannotInheritclass
-    //{ 
-    //}
-    */
-
-    //It contains only abstration and no implementation which is used to hide the method definition. Similar to interface
-    abstract class Abstractclass
-    {
-        public abstract void login();
-        public void AbstractMethod()
-        {
-            Console.WriteLine();
-        }
-    }
+    
     static class StaticClass 
     {
         public static void StatMethod()
@@ -66,6 +109,11 @@ namespace WpfApp1
         }
     }
     //Interface
+    /// <summary>
+    /// Interfaces promote "loose coupling" by specifying what a class does, not how it does it. 
+    /// Use them when you want to define a contract that classes must adhere to, without specifying any implementation details, 
+    /// or when you need to implement multiple behaviors across different class hierarchies
+    /// </summary>
     public interface IclassInterface
     {
         void Passvalid();
@@ -74,6 +122,9 @@ namespace WpfApp1
     }
     public class BaseA: IclassInterface
     {
+
+        // Derived class can be overridden with their own defination if we use "virtual"
+        //Whereas when we use "abstract" Derived class MUST be overridden
         public virtual void login()
         {
             Console.WriteLine("Base class");
@@ -98,7 +149,9 @@ namespace WpfApp1
         {
             Console.WriteLine("Derived class method redefination using override.");
         }
-        //Override interface definition with key "new"
+        
+        /* Hide base/abstract class imeplementation 
+         * and Override interface definition by specifying "new" keyword */
         public new void CheckP()
         {
 

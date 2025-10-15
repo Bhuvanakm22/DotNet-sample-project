@@ -29,8 +29,6 @@ namespace NetConceptWithWpfApp
             Items = items;
         }
 
-
-
         /// <summary>
         /// the "yield" keyword allows you to create iterator methods, which are methods 
         /// that return an IEnumerable or IEnumerator interface. It enables you to generate a sequence of values one at a time, 

@@ -43,7 +43,7 @@ namespace WpfApp1
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            SQLIntraction sqlIntraction = new SQLIntraction();
+            SQLRepository sqlIntraction = new SQLRepository();
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
@@ -89,6 +89,11 @@ namespace WpfApp1
         {
             this.Close();
         }
+        private void MenuItem_Click_11(object sender, RoutedEventArgs e)
+        {
+            LINQ linq = new LINQ();
+        }
+        
     }
 
     /// <summary>

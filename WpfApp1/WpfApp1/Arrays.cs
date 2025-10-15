@@ -95,7 +95,7 @@ namespace WpfApp1
             Console.WriteLine(c.PadLeft(14, '.'));
             //Console.Clear();
             //One dimentional array
-            string[] str1 = ["ss", "sss"];
+            string[] str1 = ["ss", "sss",""];
             string[] str2 = new string[2];
             str2 = ["as", "sdsd", "sdgfg", "fgfg", "gff"];
             str2.Append("bbb");
@@ -215,8 +215,8 @@ namespace WpfApp1
             int[][] jaggedArray2 =
             [
                 [1, 3, 5, 7, 9],
-    [0, 2, 4, 6],
-    [11, 22]
+                [0, 2, 4, 6],
+                [11, 22]
             ];
 
             // Assign 77 to the second element ([1]) of the first array ([0]):

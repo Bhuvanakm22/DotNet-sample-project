@@ -30,7 +30,7 @@
     </Window.Resources>
     <Grid Margin="0,0,10,0">
         <Image HorizontalAlignment="Center" Height="217" Margin="0,113,0,0" VerticalAlignment="Top" Width="458" Source="/Screenshot 2023-05-30 184709.png"/>
-        <Menu Style="{DynamicResource MenuStyle1}" Margin="10,10,886,190">
+        <Menu Style="{DynamicResource MenuStyle1}" Margin="10,10,898,33">
             <MenuItem Header="All in One" Click="MenuItem_Click">
                 <MenuItem Header="Main Window"/>
             </MenuItem>
@@ -43,7 +43,19 @@
             <MenuItem Header="Delegates" Click="MenuItem_Click_7"/>
             <MenuItem Header="File Handle" Click="MenuItem_Click_8"/>
             <MenuItem Header="MSMQ" Click="MenuItem_Click_9"/>
-            <MenuItem Header="Close" Click="MenuItem_Click_10"/>
+
+            <MenuItem Header="LINQ" Click="MenuItem_Click_11" Height="17"/>
+            <MenuItem Header="Close" Click="MenuItem_Click_10" Height="24" Width="52" RenderTransformOrigin="0.5,0.5">
+                <MenuItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </MenuItem.RenderTransform>
+            </MenuItem>
+
         </Menu>
 
     </Grid>

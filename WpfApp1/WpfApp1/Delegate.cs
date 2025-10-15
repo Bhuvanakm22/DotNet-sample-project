@@ -21,7 +21,7 @@ namespace WpfApp1
     ///3. observer pattern and 4. designing frameworks or components 
     ///that need to notify other objects about events or changes 
     ///without knowing the specifics of those objects.
-    delegate void DelegateCallback(); //Delegate initialization for void methods
+    delegate void DelegateCallback(); //Delegate declaration and initialization for void methods
     delegate int DelegateForIntback(); //Delegate initialization for int methods
     delegate int DelegateForIntCallBack(out int R, out int A);//Delegate initialization for method with some args 
     internal class Delegate

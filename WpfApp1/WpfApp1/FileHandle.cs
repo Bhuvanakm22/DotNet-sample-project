@@ -25,8 +25,6 @@ namespace WpfApp1
             byte[] buffer = new byte[1024];
             buffer[0]= 70;
             File.WriteAllBytes("SecondTestFile.txt", buffer);
-           
-
         }
         public void FileWrite(byte filedata = 70, string filename = "testFile.txt")
         {

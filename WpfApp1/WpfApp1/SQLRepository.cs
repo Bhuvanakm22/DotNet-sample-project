@@ -7,21 +7,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using NetConceptWithWpfApp.Interface;
 namespace WpfApp1
 {
-    public class SQLIntraction
+    public class SQLRepository : ISQLRepository
     {
         string connectionString=string.Empty;
         string DB = ConfigurationHelper.GetAppSetting("DB");
+        string IsInsertRequired = ConfigurationHelper.GetAppSetting("IsInsert");
         //MS SQL Connection
         private SqlConnection connection;
-        public SQLIntraction() {
+
+        public string Name
+        {
+            get; set;
+        }
+        public int Id
+        {
+            get; set;
+        }
+        public SQLRepository() {
 
             SQLConnection();
             if (DB == "MSSQL")
             {
-                insertData();
-                UpdateData();
+                if(IsInsertRequired=="Y")
+                {
+                    insertData();
+                    UpdateData();
+                }
                 GetData();
             }
         }
@@ -33,14 +47,16 @@ namespace WpfApp1
             if (DB == "MSSQL")
             {
                 connectionString = ConfigurationHelper.GetConnectionString("MSSQLDBConnection");
-                connection = new SqlConnection(connectionString);
-                try
+                using (connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"MS SQL Connection error: {ex.Message}");
+                    try
+                    {
+                        connection.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"MS SQL Connection error: {ex.Message}");
+                    }
                 }
             }
             else
@@ -119,6 +135,16 @@ namespace WpfApp1
                 }
                 names.TrimEnd(',');
             }
+        }
+        public void GetDataWithDapper()
+        {
+
+            List<SQLRepository> sQLRepositories = [
+                new SQLRepository{ Name="John Doe", Id=1},
+               new SQLRepository{Name="Jane Smith", Id = 2},
+               ];
+                
+            //connection.query
         }
     }
 }
