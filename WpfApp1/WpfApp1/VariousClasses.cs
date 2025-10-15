@@ -10,9 +10,26 @@ namespace WpfApp1
 {
     public class VariousClasses
     {
-       public  VariousClasses() {
+        //Normal class property declaration
+        public string Name { get; set; }= string.Empty;
+       public  VariousClasses(string name) {
+            Name = name;
+            Console.WriteLine(Name);
             DerivedA objderived = new DerivedA();
             objderived.login();
+        }
+    }
+    /// <summary>
+    /// Record class reduces the constructor overhead.
+    /// It allows only the record class as a base class, below "Abstractclass2" implementation is not possible
+    /// </summary>
+    /// <param name="Name"></param>
+    //public record class RecordClass(string Name) : Abstractclass2
+    public record class RecordClass(string Name) 
+    {
+        public void login2()
+        {
+            Console.WriteLine(Name);
         }
     }
 
@@ -185,5 +202,6 @@ namespace WpfApp1
         private object objlock = new object();
 
     }//clsDerived
+
 
 }

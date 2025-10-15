@@ -59,7 +59,7 @@ namespace WpfApp1
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
             //Classes
-            VariousClasses clsMain = new VariousClasses();
+            VariousClasses clsMain = new VariousClasses("John");
         }
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
         {
