@@ -19,13 +19,19 @@ namespace WpfApp1
             objderived.login();
         }
     }
-    /// <summary>
-    /// Record class reduces the constructor overhead.
-    /// It allows only the record class as a base class, below "Abstractclass2" implementation is not possible
-    /// </summary>
-    /// <param name="Name"></param>
-    //public record class RecordClass(string Name) : Abstractclass2
-    public record class RecordClass(string Name) 
+    public class PropertiesInitClasses
+    {
+        //Normal class property declaration
+        public string Name { get; set; } = string.Empty;
+    }
+
+        /// <summary>
+        /// Record class reduces the constructor overhead.
+        /// It allows only the record class as a base class, below "Abstractclass2" implementation is not possible
+        /// </summary>
+        /// <param name="Name"></param>
+        //public record class RecordClass(string Name) : Abstractclass2
+        public record class RecordClass(string Name) 
     {
         public void login2()
         {
@@ -161,13 +167,19 @@ namespace WpfApp1
     }
     public class DerivedA : BaseA, IclassInterface
     {
+        ////Property initialization while creating an object
+        PropertiesInitClasses propertiesInitClasses = new PropertiesInitClasses { Name = "John" };
+        PropertiesInitClasses propertiesInitClasses2 = new PropertiesInitClasses() { Name = "John" };
+        PropertiesInitClasses propertiesInitClasses3 = new() { Name = "John" };
+        ////Below instantiation is not possible as there is NO constructor available for PropertiesInitClasses
+        //PropertiesInitClasses propertiesInitClasses4 = new PropertiesInitClasses("John") { Name = "John" };
 
         public override void login()
         {
             Console.WriteLine("Derived class method redefination using override.");
         }
         
-        /* Hide base/abstract class imeplementation 
+        /* Hide base/abstract class implementation 
          * and Override interface definition by specifying "new" keyword */
         public new void CheckP()
         {
