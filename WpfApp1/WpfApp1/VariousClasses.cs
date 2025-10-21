@@ -31,7 +31,7 @@ namespace WpfApp1
         /// </summary>
         /// <param name="Name"></param>
         //public record class RecordClass(string Name) : Abstractclass2
-        public record class RecordClass(string Name) 
+    public record class RecordClass(string Name) 
     {
         public void login2()
         {
@@ -215,5 +215,9 @@ namespace WpfApp1
 
     }//clsDerived
 
+    public class ConstClass
+    {
+        public const string NameChange = "John";
 
+    }
 }

@@ -157,6 +157,13 @@ namespace WpfApp1
             var lvl = ((int)Level.VeryHigh);
             Console.WriteLine(lvl.ToString());
             listBox1.Items.Add(lvl);
+
+            ConstClass ObjConstClass = new ConstClass();
+            //Below NameChange field is not allowed as it is const, we cannot change the value based on the object/instance
+            //Console.WriteLine(ObjConstClass.NameChange);
+            //Namechange field has be accessed with the class name, Even though it is not a static class
+            Console.WriteLine(ConstClass.NameChange);
+
             FileHandle objFileHandle = new FileHandle();
             FileRead();
 
