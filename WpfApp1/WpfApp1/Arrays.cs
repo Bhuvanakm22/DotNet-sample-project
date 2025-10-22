@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using ClassLibraryCommon;
 namespace WpfApp1
 {
     public class Product
@@ -80,7 +80,15 @@ namespace WpfApp1
             int[] numbs = new int[9] {5,86,45,7,8,6,5,4,6};
             int[] numbss = new int[9];
                 numbs=[4,55,66];
+            string[] strArrayValues = ["ss", "sss", ""];
 
+            //Calling class library method. It's a reusable method all over the project.
+            GenericMethod classLibraryCommon = new();
+            var resultIntMax=classLibraryCommon.FindMaxValue(numbs);
+            var resultStringMax = classLibraryCommon.FindMaxValue(strArrayValues);
+
+            Console.WriteLine(resultIntMax);
+            Console.WriteLine(resultStringMax);
 
             getMaxAdditionalDinersCount(15, 2, 3, new long[] { 11, 6, 14 });
             getMaxAdditionalDinersCount(10, 1, 2, new long[] { 2, 6 });

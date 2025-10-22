@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public class VariousClasses
+    public class ClassesVariousMethods
     {
         //Normal class property declaration
         public string Name { get; set; }= string.Empty;
-       public  VariousClasses(string name) {
+       public  ClassesVariousMethods(string name) {
             Name = name;
             Console.WriteLine(Name);
             DerivedA objderived = new DerivedA();

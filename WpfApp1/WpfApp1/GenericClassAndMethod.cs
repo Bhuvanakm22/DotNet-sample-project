@@ -25,7 +25,7 @@ namespace NetConceptWithWpfApp
         }
 }
 
-    internal class Generic
+    internal class GenericClassAndMethod
     {
         /// <summary>
         /// Like generic classes, generic methods allow you to create methods 
@@ -53,7 +53,7 @@ namespace NetConceptWithWpfApp
 
             return max;
         }
-        public Generic() {
+        public GenericClassAndMethod() {
        
         // 1. Generic class Usage
         Box<int> intBox = new Box<int>();

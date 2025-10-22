@@ -46,6 +46,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryCommon\ClassLibraryCommon\ClassLibraryCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
