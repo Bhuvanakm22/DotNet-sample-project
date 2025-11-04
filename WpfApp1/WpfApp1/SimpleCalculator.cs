@@ -53,5 +53,16 @@ namespace NetConceptWithWpfApp
             //return 0;
             //}
         }
+        public int DiscountCalculator(int price, int percent)
+        {
+            if(price <= 0)
+            return 0;
+            int temp = price;
+            int Quotient = 0;
+
+            Quotient=temp / percent;
+            return temp - Quotient;
+
+        }
     }
 }

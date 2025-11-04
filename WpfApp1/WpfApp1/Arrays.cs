@@ -97,10 +97,14 @@ namespace WpfApp1
             var b = "6455";
             var c = "Mr. Albert";
             var age = 5;
+            var strvalue = c[0..9];
             Console.Write(a.PadRight(10, '-'));
             Console.Write(b.PadRight(6, '-'));
             Console.Write(c.PadRight(12, '-'));
             Console.WriteLine(c.PadLeft(14, '.'));
+            Console.WriteLine((c.StartsWith('M') && c.EndsWith('t')) ? "Expected text" : "Error in text");
+            Console.WriteLine((c[0]=='M' && c[^1]=='t') ? "Expected text" : "Error in text");
+            Console.WriteLine(c[0..2]=="Mr." ? "Expected text" : "Error in text");
             //Console.Clear();
             //One dimentional array
             string[] str1 = ["ss", "sss",""];
