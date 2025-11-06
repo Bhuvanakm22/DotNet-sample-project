@@ -63,6 +63,10 @@ namespace NetConceptWithWpfApp
             ht.Remove(1);
             ht.Clear();
         }
+        public void SortedSet()
+        {
+            SortedSet<string> strings = new SortedSet<string>();
+        }
         public void SortedLists()
         {
             SortedList sl = new SortedList();
