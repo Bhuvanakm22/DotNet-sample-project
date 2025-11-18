@@ -31,9 +31,9 @@ namespace TestWpfApp1
         [TestCase("2", "3", "2")]
         public void Loginvalid_WithStringInput_InCorrectOutput(int number1, int number2, string expected)
         {
-            /***We cannot use mock for Non-overridable members of DerivedA class which means directly on class
+            /***We cannot use mock for Non-override members of DerivedA class which means directly on class
             instead use the "interface" option here IclassInterface 
-            When are trying to use a Mock we definetly need respective Interface of that class.
+            When are trying to use a Mock we definitely need respective Interface of that class.
 
             */
             //Mock<BaseA> MockobjBaseA = new Mock<BaseA>();

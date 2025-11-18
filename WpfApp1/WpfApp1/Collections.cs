@@ -39,14 +39,20 @@ namespace NetConceptWithWpfApp
         /// <returns></returns>
         public IEnumerable<int> GetEvenNumbersEfficiently(int n)
         {
-            for(int i = 0; i <= n; i++)
+            GetEvenNumbersInefficient( n);
+            for (int i = 0; i <= n; i++)
             {
                 if((i%2)==0)
                  yield return i;
             }
-            
+            //or
+            for (int i = 0; i <= n; i+=2)
+            {
+                    yield return i;
+            }
+
         }
-        public IEnumerable<int> GetEvenNumbersUnefficient(int n)
+        public IEnumerable<int> GetEvenNumbersInefficient(int n)
         {
             var result = new List<int>();
             for (int i = 0; i <= n; i++)
