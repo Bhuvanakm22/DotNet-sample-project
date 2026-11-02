@@ -87,7 +87,10 @@ namespace WpfApp1
         {
             string conn = ConfigurationHelper.GetConnectionString("MSSQLDBConnection");
             optionsBuilder.UseSqlServer(conn);
-  
+            //Obviously creates N+1 problem while loading navigation properties
+            optionsBuilder.UseLazyLoadingProxies();
+            base.OnConfiguring(optionsBuilder);
+
         }
 
     }

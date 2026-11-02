@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace NetConceptWithWpfApp
 {
@@ -15,6 +16,7 @@ namespace NetConceptWithWpfApp
             Queues();
             EmptyCollection();
             SpreadCollection();
+            DictionarySet();
         }
         public void EmptyCollection()
         {
@@ -34,6 +36,9 @@ namespace NetConceptWithWpfApp
         {
             List<string> list1 = ["Hi","Hello","Dear"];
             List<string> list2 = ["Albert","Amster","Agony"];
+            List<int> numbers = [1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5];
+            int[] list4 = [1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5];
+            int[] list5 = { 1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5 };
             List<string> spreadList = [..list1,..list2];
             Console.WriteLine(string.Join(",", spreadList));
             
@@ -45,6 +50,7 @@ namespace NetConceptWithWpfApp
             ht.Add(1, "Abi");
             ht.Add(12, "Bhuvana");
             ht.Add(8, "Dinesh");
+            ht.Add(1, "Abi");
             //Checking
             if (ht.ContainsValue("Sikar"))
                 Console.WriteLine("Sikar is already exist in the HashTable");
@@ -75,6 +81,8 @@ namespace NetConceptWithWpfApp
             sl.Add(8, "India");
             sl.Add(4, "UK");
             sl.Add(1, "USA");
+            sl.Add(5, 2);
+            sl.Add(2, 2.5);
             Console.WriteLine("Count : {0}", sl.Count);
             if (sl.ContainsValue("Srilanka"))
                 Console.WriteLine("Srilanka is already exist in the SortedList");
@@ -250,6 +258,59 @@ namespace NetConceptWithWpfApp
             Console.WriteLine();
             Console.WriteLine("Count : {0}", st.Count);
             Console.ReadKey();
+        }
+        public void DictionarySet()
+        {
+            /*
+            //List<string> list1 = ["Hi", "Hello", "Dear"];
+            //List<int> numbers = [1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5];
+            //int[] list4 = [1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5];
+            //int[] list42 = { 1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5 };
+            //List<string> list2 = ["Albert", "Amster", "Agony"];
+            //List<string> spreadList = [.. list1, .. list2];
+            //Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
+
+            //for (int i = 0; i < numbers.Count; i++)
+            //{
+            //    if (!keyValuePairs.Keys.Contains(numbers[i]))
+            //        keyValuePairs.Add(numbers[i], 1);
+            //    else
+            //    {
+            //        //keyValuePairs.Keys.Contains(numbers[i]);
+            //        keyValuePairs[numbers[i]] += 1;
+            //    }
+
+            //}
+            //Console.WriteLine(string.Join(",", spreadList));
+            */
+            int[] numbers = [1, 2, 2, 3, 1, 1, 1, 2, 4, 5, 4, 4, 5];
+            Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (!keyValuePairs.Keys.Contains(numbers[i]))
+                    keyValuePairs.Add(numbers[i], 1);
+                else
+                {
+                    //keyValuePairs.Keys.Contains(numbers[i]);
+                    keyValuePairs[numbers[i]] += 1;
+                }
+
+            }
+            //To get value using key
+            keyValuePairs.TryGetValue(2, out int val);
+            //To get key using value
+            var key= keyValuePairs.FirstOrDefault(x=>x.Value == val).Key;
+
+
+            Console.WriteLine("Key: 2," + "Value:" + val);
+            //Store key collection
+            ICollection Keys = keyValuePairs.Keys;
+            //Store Values collection
+            ICollection Values =keyValuePairs.Values;
+            //Key,value pair using GroupBy LINQ
+            var res =numbers.GroupBy(x=>x).Select(x=>x.Key);
+            Console.WriteLine(string.Join(",", numbers));
         }
     }
 }

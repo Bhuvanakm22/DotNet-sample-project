@@ -34,12 +34,12 @@ namespace WpfApp1
 
 
             //Delegate to invoke multiple methods at one time
-            DelegateCallback d1 = oblderived.Passvalid;
+            DelegateCallback d1 = oblderived.Passvalid; //Singlecast delegate
             DelegateCallback d2 = mainWindow.paid;
             DelegateCallback dd = mainWindow.paid;
 
             //Add two delegates
-            DelegateCallback AllDelegate = d1 + d2 + dd;
+            DelegateCallback AllDelegate = d1 + d2 + dd; // Multicast delegate
             //Remove one delegate but results in the unchanged multicast delegate.
             AllDelegate -= dd;
             // copy AllMethodsDelegate while removing d2 but results in the unchanged multicast delegate.

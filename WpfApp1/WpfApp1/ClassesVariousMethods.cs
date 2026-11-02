@@ -21,16 +21,44 @@ namespace WpfApp1
     }
     public class PropertiesInitClasses
     {
+        //Normal method declaration
+        public string login()
+        {
+            Console.WriteLine(Name);
+            return Name;
+        }
         //Normal class property declaration
-        public string Name { get; set; } = string.Empty;
+        public string Name 
+        { 
+            get; 
+            set; 
+        } = string.Empty;
+
+        private string _name3 = string.Empty;
+        public string Name3
+        {
+            get { return _name3; }
+            set { _name3 = value; }
+        }
+
+        //Normal class property declaration with "init" keyword
+        public string Name2 { get; init; } = string.Empty;
+        //Below will throw an error since "init" keyword is used and it can be initialized only during object creation
+
+        //public string Name2 { get; init; } = "John";
+        //public PropertiesInitClasses(string name)
+        //{
+        //    Name2 = name;
+        // }
+  
     }
 
-        /// <summary>
-        /// Record class reduces the constructor overhead.
-        /// It allows only the record class as a base class, below "Abstractclass2" implementation is not possible
-        /// </summary>
-        /// <param name="Name"></param>
-        //public record class RecordClass(string Name) : Abstractclass2
+    /// <summary>
+    /// Record class reduces the constructor overhead.
+    /// It allows only the record class as a base class, below "Abstractclass2" implementation is not possible
+    /// </summary>
+    /// <param name="Name"></param>
+    //public record class RecordClass(string Name) : Abstractclass2
     public record class RecordClass(string Name) 
     {
         public void login2()
@@ -38,7 +66,34 @@ namespace WpfApp1
             Console.WriteLine(Name);
         }
     }
+    public abstract class CreditCard
+    {
+        //Below will throw an err if we declare with "virtual" WITHOUT body of the fn.
+        //if there is NO body of the fn in abstract class must declare with "abstract" keyword
+        //public virtual void Validate();
 
+        public virtual string GetType(string type)
+        {
+            return type;
+        }
+        public abstract int CalIntAmount(int amt);
+    }
+    public class Monzo :CreditCard
+    {
+        public override string GetType(string type)
+        {
+            return type;
+        }
+        public override int CalIntAmount(int amt)
+        {
+            return amt * 2 / 100;
+        }
+        public int login(int amt)
+        {
+            return 0;
+        }
+    }
+ 
     abstract class Abstractclass2
     {
         public abstract void login2();
@@ -54,6 +109,7 @@ namespace WpfApp1
         //Below will throw an err if we declare with "virtual" WITHOUT body of the fn.
         //if there is NO body of the fn in abstract class must declare with "abstract" keyword
         //public virtual void Validate();
+        
         public abstract void Validate();
         public abstract void login();
 
